@@ -21,6 +21,19 @@ class BlogpostRepository extends ServiceEntityRepository
         parent::__construct($registry, Blogpost::class);
     }
 
+    /**
+       * @return Blogpost[] retrun array of Peinture objects
+       */
+      public function Lastree()
+      {
+          return $this->createQueryBuilder('b')
+              ->orderBy('b.id', 'DESC')
+              ->setMaxResults(3)
+              ->getQuery()
+              ->getResult()
+          ;
+      }
+
 //    /**
 //     * @return Blogpost[] Returns an array of Blogpost objects
 //     */

@@ -16,31 +16,31 @@
         </div>
 
         <div>
-            <div>
+            {% for blogpost in blogposts %}
                 <div>
-                    <a href="#">
+                    <div>
+                        <a href="#">
 
-                        <h3>
-                            Titre de l'Actualité
-                        </h3>
+                            <h3>
+                                {{ blogpost.titre }}
+                            </h3>
 
-                        <p>
-                            Notice how this card stays the same heignt as the sibling ...
-                        </p>
-                    </a>
+                            <p>
+                                {{ blogpost.contenu|u.truncate(150, '...', false) }}
+                            </p>
+                        </a>
 
-                    <a href="#">
+                        <a href="#">
 
-                        <hr>
+                            <hr>
 
-                        <p>
-                            <time>
-                                Publié le .....
-                            </time>
-                        </p>
-                    </a>
+                           <p>
+                                <time>Publié le {{ blogpost.createdAt|date('d/m/y') }}</time>
+                            </p>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

@@ -16,39 +16,41 @@
         </div>
 
         <div>
-            <div>
+            {% for peinture in peintures %}
                 <div>
                     <div>
-                        <a href="#">
-                            <img src="#">
-                        </a>
                         <div>
-
-                            <!-- Body -->
-                            <a>
-
-                                <h3>
-                                    Titre de la peinture
-                                </h3>
-
-                                <p>
-                                    This is the body text of the blog to give visiter ....
-                                </p>
-
+                            <a href="#">
+                                <img src="{{ peinture.file }}">
                             </a>
+                            <div>
 
-                            <!-- Meta -->
-                            <a>
-                                <hr>
-                                <p>
-                                    <time>Ajouté le ....</time>
-                                </p>
-                            </a>
+                                <!-- Body -->
+                                <a>
 
+                                    <h3>
+                                        {{ peinture.nom }}
+                                    </h3>
+
+                                    <p>
+                                        {{ peinture.description|u.truncate(200, '...', false) }}
+                                    </p>
+
+                                </a>
+
+                                <!-- Meta -->
+                                <a>
+                                    <hr>
+                                    <p>
+                                        <time>Ajouté le {{ peinture.createdAt|date('d/m/y') }}</time>
+                                    </p>
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
