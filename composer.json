@@ -3,7 +3,7 @@
     "type": "project",
     "license": "proprietary",
     "description": "A skeleton to start a new Symfony website",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",
@@ -51,7 +51,8 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^6.3",
         "symfony/stopwatch": "6.1.*",
-        "symfony/web-profiler-bundle": "6.1.*"
+        "symfony/web-profiler-bundle": "6.1.*",
+        "symfony/webpack-bundle": "^6.1"
     },
     "config": {
         "allow-plugins": {

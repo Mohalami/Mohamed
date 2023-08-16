@@ -1,57 +1,24 @@
 version: '3'
 
 services:
-###> doctrine/doctrine-bundle ###
-  database:
-  MohaProjetCCI:
+  database: # Nom du service
     image: 'mysql:latest'
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: main
     ports:
-      # To allow the host machine to access the ports below, modify the lines below.
-      # For example, to allow the host to connect to port 3306 on the container, you would change
-      # "3306" to "3306:3306". Where the first port is exposed to the host and the second is the container port.
-      # See https://docs.docker.com/compose/compose-file/compose-file-v3/#ports for more information.
       - '3306'
+
+  MohaProjetCCI: # Nom du service
+    image: 'mysql:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: main
+    ports:
+      - '3306'
+
   mailer:
     image: schickling/mailcatcher
-    ports: [1025, 1080]
-
-
-# services: 
-#     surfshark:
-#         image: ilteoood/docker-surfshark
-#         container_name: surfshark
-#         environment: 
-#             - SURFSHARK_USER=xxxx
-#             - SURFSHARK_PASSWORD=xxxx
-#             - SURFSHARK_COUNTRY=nl
-#             - SURFSHARK_CITY=ams
-#             - CONNECTION_TYPE=udp
-#             - LAN_NETWORK=
-#         cap_add: 
-#             - NET_ADMIN
-#         devices:
-#             - /dev/net/tun
-#         ports:
-#             - 8080:8080
-#         restart: unless-stopped
-#         dns:
-#             - 1.1.1.1
-#     qbittorrent:
-#     image: lscr.io/linuxserver/qbittorrent:latest
-#     container_name: qbittorrent
-#     environment:
-#       - PUID=1000
-#       - PGID=1000
-#       - TZ=Etc/UTC
-#       - WEBUI_PORT=8080
-#     volumes:
-#       - /root/qbittorrent/config:/config
-#       - /root/vv/jellyfin/SEED:/downloads
-#     ports:
-#       - 8080:8080
-#       - 6881:6881
-#       - 6881:6881/udp
-#     restart: unless-stopped
+    ports: 
+      - 1025
+      - 1080
