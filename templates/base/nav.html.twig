@@ -1,3 +1,4 @@
+
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="container">
@@ -28,19 +29,23 @@
                 </li>
                 <li>
                     <a href="">Portfolio</a>
-                    <ul>
-                        <li>
-                            <a href="#">Catégorie 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Catégorie 2</a>
-                        </li>
-                    </ul>
+                    {#
+                        <ul>
+                            {% for categorie in categorieNavbar() %}
+                                <li>
+                                    <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">
+                                        {{ categorie.nom }} 
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    #}
                 </li>
                 <li>
                     <a href="{{ path('a_propos') }}">A propos</a>
                 </li>
             </ul>
+            <!-- Button -->
             <a href="#">Me contacter</a>
         </div>
     <div>

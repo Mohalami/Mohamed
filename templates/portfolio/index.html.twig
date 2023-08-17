@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PortfolioController!{% endblock %}
+
+{% block body %}
+<!-- WELCOME -->
+<section>
+    <div class="container">
+        <div>
+            <div>
+                <h1>
+                    Portfolio
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div>
+            {% for categorie in categories %}
+                {% set peintures = categorie.peintures|last  %}
+                {% if peintures is not empty %}
+                    {% set img = peintures %}
+                    <div>
+                        <a href="{{ path('portfolio_categorie', { 'slug': categorie.slug }) }}">
+                            <img src="{{ img.file }}"/>
+                            <div>
+                                <h4>
+                                    {{ categorie.nom }}
+                                </h4>
+                                <small>
+                                    {{ categorie.description }}
+                                </small>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
