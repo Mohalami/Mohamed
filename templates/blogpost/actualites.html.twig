@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PeintureController!{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <div>
+                <div>
+                    <p>
+                        These can be split ....
+                    </p>
+                </div>
+                {% for blogpost in blogposts %}
+                    <div>
+                        <div>
+                            <a href="#">
+                                <h3>
+                                    {{asset(blogpost.titre)}}
+                                </h3>
+                                <p>
+                                    {{blogpost.contenu|u.truncate(150, '...', false)}}
+                                </p>
+                            </a>
+                            <a>
+                               <hr>
+                                <p>
+                                    <time>
+                                        Publié le {{ blogpost.createdAt|date('d/m/y') }}
+                                    </time>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+      
+    </section>
+{% endblock %}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ma page</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+   <nav aria-label="...">
+  <ul class="pagination pagination-lg">
+    {# Previous Page Link #}
+    {% if peintures.hasPreviousPage %}
+      <li class="page-item">
+        <a class="page-link" href="{{ path('realisations', {'page': peintures.previousPage}) }}" tabindex="-1">Previous</a>
+      </li>
+    {% endif %}
+
+    {# Page Links #}
+    {% for page in peintures.pagesInRange %}
+      <li class="page-item {% if peintures.currentPage == page %}active{% endif %}">
+        <a class="page-link" href="{{ path('realisations', {'page': page}) }}">{{ page }}</a>
+      </li>
+    {% endfor %}
+
+    {# Next Page Link #}
+    {% if peintures.hasNextPage %}
+      <li class="page-item">
+        <a class="page-link" href="{{ path('realisations', {'page': peintures.nextPage}) }}">Next</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PeintureController!{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <div>
+                <div>
+                    <p>
+                        These can be split ....
+                    </p>
+                </div>
+                {% for peinture in peintures %}
+                    <div>
+                        <div>
+                            <a href="#">
+                                <img src="{{asset(peinture.file)}}" >
+                            </a>
+                            <a>
+                                <h3>
+                                    {{peinture.nom}}
+                                </h3>
+                                <p>
+                                    {{peinture.description|u.truncate(200, '...', false)}}
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+      
+    </section>
+{% endblock %}
+
