@@ -11,6 +11,7 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+
 class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $hasher;
@@ -32,7 +33,8 @@ class AppFixtures extends Fixture
              ->setNom($faker->lastName())
              ->setTelephone($faker->phoneNumber())
              ->setAPropos($faker->text())
-             ->setInstagram('instagram');
+             ->setInstagram('instagram')
+             ->setRoles(['ROLE_PEINTRE']);
 
              $password = $this->hasher->hashPassword($user, 'password');
         $user->setPassword($password);
