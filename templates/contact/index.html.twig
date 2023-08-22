@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+    <section>
+
+        <div class="container">
+            <div>
+                <div>
+                    <img src="#">
+                    <div style="background-image: url()></div>
+                </div>
+
+                <div>
+                    <h2>
+                        Me contacter
+                    </h2>
+
+                    <p>
+                        Une question? envie d'acheter ou meme discuter? N'hesitez pas a me contacter.
+                    </p>
+
+                    <hr>
+
+                    {{ form_start(form) }}
+                        {% for message in app.flashes('success') %}
+                            <div>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
+                        <div>
+                            {{ form_errors(form) }}
+                        </div>
+
+                        <div>
+                            <label for="contactName">
+                                {{ form_label(form.nom) }}
+                            </label>
+                            {{ form_widget(form.nom) }}
+                        </div>
+
+                        <div>
+                            <label for="contactEmail">
+                                {{ form_label(form.email) }}
+                            </label>
+                            {{ form_widget(form.email) }}
+                        </div>
+
+                        <div>
+                            <label for="contactMessage">
+                                {{ form_label(form.message) }}
+                            </label>
+                            {{ form_widget(form.message) }}
+                        </div>
+
+                        <div class="mb-5">
+                            {{ form_widget(form.envoyer) }}
+                        </div>
+
+                    {{ form_end(form) }}
+                    
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
