@@ -14,7 +14,7 @@
                 {% for blogpost in blogposts %}
                     <div>
                         <div>
-                            <a href="#">
+                            <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
                                 <h3>
                                     {{asset(blogpost.titre)}}
                                 </h3>
@@ -22,7 +22,7 @@
                                     {{blogpost.contenu|u.truncate(150, '...', false)}}
                                 </p>
                             </a>
-                            <a>
+                            <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
                                <hr>
                                 <p>
                                     <time>

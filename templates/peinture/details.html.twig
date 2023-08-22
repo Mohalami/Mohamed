@@ -20,7 +20,7 @@
                         <li>
                             <h6>
                                 Date de Réalisation
-                                <span> {{ peinture.dateRealisation|date('d/m/Y) }}</span>
+                                <span> {{ peinture.dateRealisation|date('d/m/Y') }}</span>
                             </h6>
                         </li>
                         <li>
@@ -35,7 +35,7 @@
                                 <span> {{ peinture.hauteur }}</span>
                             </h6>
                         </li>
-                        {% if, peintre.enVente %}
+                        {% if peinture.enVente %}
                             <li>
                                 <h6>
                                     <strong>Disponible à la vente >/strong>

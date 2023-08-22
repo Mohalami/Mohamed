@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block body %}
+
+    <!-- HEADER -->
+    <section>
+        <div>
+            <div>
+                <div>
+                    <h1>{{ blogpost.titre }}</h1>
+                    <div>
+                        <div></div>
+                        <div>
+                            <time>
+                                Publié le {{ blogpost.createdAt|date('d/m/Y') }}
+                            </time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <div>
+                <div>
+                    <p>
+                        {{ blogpost.contenu }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

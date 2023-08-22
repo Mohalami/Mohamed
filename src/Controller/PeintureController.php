@@ -30,8 +30,13 @@ class PeintureController extends AbstractController
     }
 
     #[Route('/realisations/{slug}', name: 'realisations_details')]
-    public function details(Peinture $peinture): Response
-    {
+    public function details(string $slug, PeintureRepository $peintureRepository): Response
+    {   
+        $peinture= $peintureRepository->findOneBy(['slug' =>$slug]);
+        
+        if(!$peinture){
+            throw $this->createNotFoundException('Peinture non trouvée');
+        }
         return $this->render('peinture/details.html.twig', [
             'peinture' =>$peinture,
         ]);

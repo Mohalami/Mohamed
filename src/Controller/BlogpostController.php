@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Blogpost;
 use App\Repository\BlogpostRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,4 +28,20 @@ class BlogpostController extends AbstractController
             'blogposts' => $blogposts,
         ]);
     }
+
+   
+#[Route('/actualites/{slug}', name: 'actualites_detail')]
+public function detail(string $slug, BlogpostRepository $blogpostRepository): Response
+{
+    $blogpost = $blogpostRepository->findOneBy(['slug' => $slug]);
+
+    if (!$blogpost) {
+        throw $this->createNotFoundException('Article non trouvé');
+    }
+
+    return $this->render('blogpost/detail.html.twig',[
+        'blogpost' => $blogpost,
+    ]);
+}
+   
 }
