@@ -20,13 +20,15 @@
                 <div>
                     <div>
                         <div>
-                            <a href="#">
+                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+
                                 <img src="{{ peinture.file }}">
                             </a>
                             <div>
 
                                 <!-- Body -->
-                                <a>
+                                <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+
 
                                     <h3>
                                         {{ peinture.nom }}

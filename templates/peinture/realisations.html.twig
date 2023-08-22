@@ -14,15 +14,21 @@
                 {% for peinture in peintures %}
                     <div>
                         <div>
-                            <a href="#">
+                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
                                 <img src="{{asset(peinture.file)}}" >
                             </a>
-                            <a>
+                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
                                 <h3>
                                     {{peinture.nom}}
                                 </h3>
                                 <p>
                                     {{peinture.description|u.truncate(200, '...', false)}}
+                                </p>
+                            </a>
+                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+                                <hr>
+                                <p>
+                                    <time>Ajoutée le {{ peinture.createdAt|date('d/m/Y') }}</time>
                                 </p>
                             </a>
                         </div>
