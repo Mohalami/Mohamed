@@ -10,44 +10,44 @@ use PHPUnit\Framework\TestCase;
 
 class PeintureUnitTest extends TestCase
 {
-//     public function testIsTrue()
-//     {
-//         $peinture = new Peinture();
-//         $datetime = new DateTime();
-//         $categorie=  new Categorie();
-//         $user= new User();
+    public function testIsTrue()
+    {
+        $peinture = new Peinture();
+        $datetime = new DateTime();
+        $categorie=  new Categorie();
+        $user= new User();
 
-//         $peinture->setNom('nom')
-//                  ->setLargeur(20)
-//                  ->setHauteur(20)
-//                  ->setEnVente(true)
-//                  ->setDateRealisation($datetime)
-//                  ->setCreatedAt($datetime)
-//                  ->setDescription('description')
-//                  ->setPorteFolio(true)
-//                  ->setSlug("slug")
-//                  ->setFile('file')
-//                  ->addCategorie($categorie)
-//                  ->setPrix(20.20)
-//                  ->setUser($user);
+        $peinture->setNom('nom')
+                 ->setLargeur(20)
+                 ->setHauteur(20)
+                 ->setEnVente(true)
+                 ->setDateRealisation($datetime)
+                 ->setCreatedAt($datetime)
+                 ->setDescription('description')
+                 ->setPorteFolio(true)
+                 ->setSlug("slug")
+                 ->setFile('file')
+                 ->addCategorie($categorie)
+                 ->setPrix(20.20)
+                 ->setUser($user);
             
 //  var_dump($peinture->getLargeur());
-//         $this->assertTrue($peinture->getNom() === 'nom');
-//         $this->assertTrue($peinture->getLargeur() === 20.20);
-//         $this->assertTrue($peinture->getHauteur() === 20.20);
-//         $this->assertTrue($peinture->isEnVente() === true);
-//         $this->assertTrue($peinture->getDateRealisation() === $datetime );
-//         $this->assertTrue($peinture->getCreatedAt() === $datetime);
-//         $this->assertTrue($peinture->getDescription() === 'description');
-//         $this->assertTrue($peinture->isPorteFolio() === true);
-//         $this->assertTrue($peinture->getSlug() === 'slug');
-//         $this->assertTrue($peinture->getFile() === 'file');
-//         $this->assertTrue($peinture->getPrix() === 20.20);
-//         $this->assertContains($categorie, $peinture->getCategorie());
-//         $this->assertTrue($peinture->getUser() === $user);
+        $this->assertTrue($peinture->getNom() === 'nom');
+        $this->assertEquals($peinture->getLargeur(), 20.20);
+        $this->assertEquals($peinture->getHauteur(), 20.20);
+        $this->assertTrue($peinture->isEnVente() === true);
+        $this->assertTrue($peinture->getDateRealisation() === $datetime );
+        $this->assertTrue($peinture->getCreatedAt() === $datetime);
+        $this->assertTrue($peinture->getDescription() === 'description');
+        $this->assertTrue($peinture->isPorteFolio() === true);
+        $this->assertTrue($peinture->getSlug() === 'slug');
+        $this->assertTrue($peinture->getFile() === 'file');
+        $this->assertEquals($peinture->getPrix(), 20.20);
+        $this->assertContains($categorie, $peinture->getCategorie());
+        $this->assertTrue($peinture->getUser() === $user);
 
        
-//     }
+    }
 
     public function testIsFalse()
     {

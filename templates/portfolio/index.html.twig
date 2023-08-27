@@ -24,7 +24,7 @@
                 {% if peintures is not empty %}
                     {% set img = peintures %}
                     <div>
-                        <a href="{{ path('portfolio_categorie', { 'slug': categorie.slug }) }}">
+                        <a href="{{ path('peinture_categorie', { 'slug': categorie.slug }) }}">
                             <img src="{{ img.file }}"/>
                             <div>
                                 <h4>

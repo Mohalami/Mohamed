@@ -20,16 +20,16 @@ class Peinture
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2, nullable: true)]
-    private ?string $largeur = null;
+    private ?float $largeur = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2, nullable: true)]
-    private ?string $hauteur = null;
+    private ?float $hauteur = null;
 
     #[ORM\Column]
     private ?bool $enVente = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
-    private ?string $prix = null;
+    private ?float $prix = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateRealisation = null;

@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AProposController extends AbstractController
 {
-    #[Route('/a_propos', name: 'a_propos')]
+    #[Route('/a-propos', name: 'a_propos')]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('a_propos/index.html.twig', [

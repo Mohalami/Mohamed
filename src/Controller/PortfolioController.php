@@ -30,5 +30,13 @@ class PortfolioController extends AbstractController
             'categorie' => $categorie,
             'peintures' => $peintures,
         ]);
+
+        // if(!$peintures){
+        //     throw $this->createNotFoundException('Peintures non trouvée');
+        // }
+        // return $this->render('portfolio/categorie.html.twig', [
+        //     'categorie' => $categorie,
+        //     'peintures' =>$peintures,
+        // ]);
     }
 }
