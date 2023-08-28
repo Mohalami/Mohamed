@@ -1,43 +1,27 @@
-
-<!-- NAVBAR -->
-<nav>
-    <div class="navbarcontainer">
-
-        <!-- brand -->
-        <a href="{{ path('home') }}">
-            <img src="">
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="{{ path('home') }}" class="navbar-brand">
+           <img src="{{ asset('img/logo.png') }}" alt="Logo">
         </a>
-
-       
-        <div class:"navbar">
-        <!-- Navigation -->
-            <ul>
-                <li>
-                    <a href="{{ path('realisations') }}">Réalisation</a>
-                </li>
-                <li>
-                    <a href="{{ path('actualites') }}">Actualités</a>
-                </li>
-                <li>
-                    <a href="">Portfolio</a>
-                    {#
-                        <ul>
-                            {% for categorie in categorieNavbar() %}
-                                <li>
-                                    <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">
-                                        {{ categorie.nom }} 
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    #}
-                </li>
-                <li>
-                    <a href="{{ path('a_propos') }}">A propos</a>
-                </li>
-            </ul>
-            <!-- Button -->
-            <a href="#">Me contacter</a>
-        </div>
-    <div>
+        <ul class="navlist">
+            <li><a href="{{ path('realisations') }}">Réalisation</a></li>
+            <li><a href="{{ path('actualites') }}">Actualités</a></li>
+            <li class="portfolio">
+                <a href="#">Portfolio</a>
+                <ul class="submenu">
+                    
+                    {% for categorie in categorieNavbar() %}
+                        <li>
+                            <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">
+                                {{ categorie.nom }} 
+                            </a>
+                        </li>
+                    {% endfor %}
+                    
+                </ul>
+            </li>
+            <li><a href="{{ path('a_propos') }}">A propos</a></li>
+        </ul>
+        <a href="#" class="nav-button">Me contacter</a>
+    </div>
 </nav>

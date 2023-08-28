@@ -20,11 +20,10 @@
     <div class="container">
         <div>
             {% for categorie in categories %}
-                {% set peintures = categorie.peintures|last  %}
-                {% if peintures is not empty %}
-                    {% set img = peintures %}
+                {% set img = categorie.peintures|last  %}
+                {% if img is not empty %}
                     <div>
-                        <a href="{{ path('peinture_categorie', { 'slug': categorie.slug }) }}">
+                        <a href="{{ path('portfolio_categorie', { 'slug': categorie.slug }) }}">
                             <img src="{{ img.file }}"/>
                             <div>
                                 <h4>

@@ -1,0 +1,56 @@
+/* Styling the artist section */
+.artist-section {
+    background-color: #f7f7f7;
+    padding: 100px 0; /* Adjust padding as needed */
+    color: #333;
+}
+
+.artist-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.artist-description p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.artist-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.artwork {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.artwork img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.artwork h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.artwork p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.artwork hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+.artwork time {
+    font-size: 0.9rem;
+    color: #777;
+}

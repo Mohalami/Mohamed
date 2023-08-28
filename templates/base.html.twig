@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/peintures.css') }}">
+
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -13,7 +15,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="page-background">
         {% include 'base/nav.html.twig' %}
         {% block body %}{% endblock %}
         {% include 'base/footer.html.twig' %}

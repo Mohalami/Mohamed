@@ -3,40 +3,35 @@
 {% block title %}Hello PeintureController!{% endblock %}
 
 {% block body %}
-    <section>
-        <div class="container">
+<section class="artist-section">
+    <div class="artist-container">
+        <div class="artist-description">
             <div>
-                <div>
-                    <p>
-                        These can be split ....
-                    </p>
-                </div>
-                {% for peinture in peintures %}
-                    <div>
-                        <div>
-                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
-                                <img src="{{asset(peinture.file)}}" >
-                            </a>
-                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
-                                <h3>
-                                    {{peinture.nom}}
-                                </h3>
-                                <p>
-                                    {{peinture.description|u.truncate(200, '...', false)}}
-                                </p>
-                            </a>
-                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
-                                <hr>
-                                <p>
-                                    <time>Ajoutée le {{ peinture.createdAt|date('d/m/Y') }}</time>
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
+                <p>
+                    These can be split ...
+                </p>
             </div>
         </div>
-      
-    </section>
+        <div class="artist-content">
+            {% for peinture in peintures %}
+            <div class="artwork">
+                <a href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
+                    <img class="artwork-image" src="{{ asset(peinture.file) }}" alt="{{ peinture.nom }}">
+                </a>
+                <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+                    <h3>{{peinture.nom}}</h3>
+                    <p>{{peinture.description|u.truncate(200, '...', false)}}</p>
+                </a>
+                <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+                    <hr>
+                    <p>
+                        <time>Ajoutée le {{ peinture.createdAt|date('d/m/Y') }}</time>
+                    </p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}
 

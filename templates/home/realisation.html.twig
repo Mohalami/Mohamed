@@ -1,65 +1,28 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello{% endblock %}
-{% block body %}
-
-<!-- ARTISTE -->
-<section>
-    <div>
-        <div>
-            <div>
-
-                <h2>
-                    Dernières Réalisations
-                </h2>
-
-                <p>
-                    These spen the grid's entire width with several options.
-                </p>
-
-            </div>
+<section class="artist-section">
+    <div class="artist-container">
+        <div class="artist-description">
+            <h2>Dernières Réalisations</h2>
+            <p>These spen the grid's entire width with several options.</p>
         </div>
 
-        <div>
+        <div class="artist-content">
             {% for peinture in peintures %}
-                <div>
-                    <div>
-                        <div>
-                            <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
-
-                                <img src="{{ peinture.file }}">
-                            </a>
-                            <div>
-
-                                <!-- Body -->
-                                <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
-
-
-                                    <h3>
-                                        {{ peinture.nom }}
-                                    </h3>
-
-                                    <p>
-                                        {{ peinture.description|u.truncate(200, '...', false) }}
-                                    </p>
-
-                                </a>
-
-                                <!-- Meta -->
-                                <a>
-                                    <hr>
-                                    <p>
-                                        <time>Ajouté le {{ peinture.createdAt|date('d/m/y') }}</time>
-                                    </p>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
+            <div class="artwork">
+                <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+                    <img src="{{ peinture.file }}" alt="{{ peinture.nom }}">
+                </a>
+                <div class="artwork-details">
+                    <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
+                        <h3>{{ peinture.nom }}</h3>
+                        <p>{{ peinture.description|u.truncate(200, '...', false) }}</p>
+                    </a>
+                    <hr>
+                    <p>
+                        <time>Ajouté le {{ peinture.createdAt|date('d/m/y') }}</time>
+                    </p>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>
 </section>
-{% endblock %}
-

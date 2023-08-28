@@ -1,43 +1,24 @@
-<!-- ARTICLES -->
-<section>
-    <div>
-        <div>
-            <div>
-
-                <h2>
-                    Dernières Actualités
-                </h2>
-
-                <p>
-                    These can be splite into mailer grid sizes ...
-                </p>
-
-            </div>
+<section class="articles-section">
+    <div class="articles-container">
+        <div class="articles-description">
+            <h2>Dernières Actualités</h2>
+            <p>Explorez nos articles récents.</p>
         </div>
 
-        <div>
+        <div class="articles-content">
             {% for blogpost in blogposts %}
-                <div>
-                    <div>
-                            <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
-                            <h3>
-                                {{ blogpost.titre }}
-                            </h3>
-
-                            <p>
-                                {{ blogpost.contenu|u.truncate(150, '...', false) }}
-                            </p>
-                        </a>
-
-                            <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
-                            <hr>
-
-                           <p>
-                                <time>Publié le {{ blogpost.createdAt|date('d/m/y') }}</time>
-                            </p>
-                        </a>
-                    </div>
+            <div class="blogpost">
+                <div class="blogpost-details">
+                    <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
+                        <h3>{{ blogpost.titre }}</h3>
+                        <p>{{ blogpost.contenu|u.truncate(150, '...', false) }}</p>
+                    </a>
+                    <hr>
+                    <p>
+                        <time>Publié le {{ blogpost.createdAt|date('d/m/Y') }}</time>
+                    </p>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>

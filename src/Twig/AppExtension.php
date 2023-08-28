@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Twig;
 
 use App\Repository\CategorieRepository;
@@ -8,14 +7,16 @@ use Twig\TwigFunction;
 
 class AppExtension extends AbstractExtension
 {
-    private function __construct(CategorieRepository $categorieRepository)
+    private $categorieRepository;
+
+    public function __construct(CategorieRepository $categorieRepository)
     {
-        $this->categorieRepository= $categorieRepository;
+        $this->categorieRepository = $categorieRepository;
     }
 
     public function getFunctions()
     {
-        return[
+        return [
             new TwigFunction('categorieNavbar', [$this, 'categorie']),
         ];
     }

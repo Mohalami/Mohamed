@@ -4,7 +4,7 @@
 
 {% block body %}
 <!-- WELCOME -->
-{% set img= categorie.peintre|last %}
+{% set img= categorie.peintures|last %}
 <section>
     <div class="container">
         <div>
@@ -25,11 +25,9 @@
         <div>
             {% for peinture in peintures %}
                 <div>
-                    <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">
-                        <div>
-                            <img src="{{ img.file }}"/>
-                        </div>
-                    </a>
+                    <div>
+                        <img src="{{ peinture.file }}"/>
+                    </div>
                 </div>
             {% endfor %}
 

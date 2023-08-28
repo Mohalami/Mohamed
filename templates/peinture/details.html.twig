@@ -38,7 +38,7 @@
                         {% if peinture.enVente %}
                             <li>
                                 <h6>
-                                    <strong>Disponible à la vente >/strong>
+                                    <strong>Disponible à la vente </strong>
                                     <span><strong>{{ peinture.prix }}</strong></span>
                                 </h6>
                             </li>
@@ -49,7 +49,7 @@
 
             <div>
                 <section>
-                    <img src="#">
+                    <img src="{{ asset(peinture.file) }}">
                 </section>
             </div>
         </div>

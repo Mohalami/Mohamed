@@ -1,134 +1,320 @@
-/* Style pour la pagination */
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .page-item {
-    list-style: none;
-    margin: 0 5px;
-  }
-  
-  .page-link {
-    display: block;
-    padding: 8px 12px;
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  
-  .page-link:hover {
-    background-color: #ddd;
-  }
-  
-  .page-item.active .page-link {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-  }
-  
-  .page-item.disabled .page-link {
-    pointer-events: none;
-    background-color: #f2f2f2;
-    border-color: #ddd;
-    color: #999;
-  }
-  
-
-  /* les autres */
-
-/* Styling for the welcome section */
-/* .welcome-section {
-  background-color: #460a0a;
-  padding: 100px 0;
-  text-align: center;
-} */
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.content {
-  background-color: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 3px 6px rgba(70, 5, 5, 0.1);
-}
-
-h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-p {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-a:hover {
-  background-color: #555;
-}
-
-i {
-  margin-left: 10px;
-}
-
-
-
-/* Reset some default styles */
-body, ul {
+/* Reset default list styles and spacing */
+ul, li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* Style for the navigation container */
-.navbar{
-  display: flex;
+.page-background {
+  background-image: linear-gradient(to bottom, #e0eaf4, #f7f7f7); /* Gradient from light blue to light gray */
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-.navbar ul{
-  display: flex;
+
+
+/* Styling the navigation bar */
+.navbar {
+  background-color: #1B3460; /* Bleu Foncé */
+  color: #fff;
 }
-.navbarcontainer {
+
+.navbar-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
-  background-color: #333; /* Change this to your desired background color */
+  align-items: center;
   padding: 10px 20px;
-  color: #fff; /* Change this to your desired text color */
 }
 
-/* ... (Rest of your styles) */
+.navbar-brand img {
+  max-height: 40px;
+  /* Add more styling if needed */
+}
 
-/* Style for the "Me contacter" button */
-.navbar a.button {
+.navlist {
+  display: flex;
+  gap: 20px;
+}
+
+.navlist > li {
+  position: relative;
+}
+
+.navlist > li > a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navlist > li:hover > a {
+  color: #F27052; /* Orange */
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio:hover .submenu {
+  display: block;
+}
+
+.nav-button {
+  background-color: #F27052; /* Orange */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #E95E3E; /* Darker shade of Orange */
+  transform: scale(1.05);
+}
+
+/* Styling the navigation logo*/
+.navbar-brand img {
+  max-height: 40px;
+  width: auto; /* To maintain aspect ratio */
+}
+
+
+/* Styling the welcome section */
+.welcome-section {
+  background-color: #f7f7f7;
+  padding: 100px 0; /* Adjust padding as needed */
+  text-align: center;
+  color: #333;
+}
+
+.welcome-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcome-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcome-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.welcome-button {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #f39c12; /* Change this to your desired button color */
-  color: #fff; /* Change this to your desired text color */
+  background-color: #3ab1c8;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: bold;
   text-decoration: none;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px; /* Add margin to push the button down */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.welcome-button i {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.welcome-button:hover {
+  background-color: #357ba2;
+  transform: scale(1.05);
+}
+
+
+/* Styling the artist section */
+.artist-section {
+  background-color: #f7f7f7;
+  padding: 100px 0; /* Adjust padding as needed */
+  color: #333;
+}
+
+.artist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.artist-description h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.artist-description p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.artist-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.artwork {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.artwork img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.artwork-details h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.artwork-details p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.artwork-details hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+}
+
+.artwork-details time {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+
+/* Styling the articles section */
+.articles-section {
+  background-color: #fff;
+  padding: 100px 0; /* Adjust padding as needed */
+  color: #333;
+}
+
+.articles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.articles-description h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.articles-description p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.articles-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.blogpost {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blogpost-details h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.blogpost-details p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.blogpost-details hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+}
+
+.blogpost-details time {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+
+/* Styling the footer section */
+.footer-section {
+  background-color: #070f4e;
+  color: #fff;
+  padding: 50px 0; /* Adjust padding as needed */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.footer-logo p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.footer-links h6,
+.footer-info h6,
+.footer-legal h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-info p,
+.footer-legal ul {
+  font-size: 0.9rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-legal li {
+  margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-legal a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover {
+  color: #3ab1c8;
+}
+
+
+
 
 
