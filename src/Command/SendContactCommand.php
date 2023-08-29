@@ -45,7 +45,7 @@ class SendContactCommand extends Command
             $email= (new Email())
                 ->from($mail->getEmail())
                 ->to($adress)
-                ->subject(('Nouveau message de '.$mail->getNom()))
+                ->subject(('Nouveau message de '. $mail->getNom()))
                 ->text($mail->getMessage());
 
                 $this->mailer->send($email);

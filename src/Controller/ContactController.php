@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'contact')]
-    public function index(Request $request): Response
+    public function index(Request $request, ContactService $contactService): Response
     {
         $contact= new Contact();
 
@@ -23,6 +23,8 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $contact= $form ->getData();
+
+            $contactService->persistContact($contact);
 
             return $this->redirectToRoute('contact');
 
