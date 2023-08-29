@@ -41,7 +41,7 @@ class Peinture
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?bool $porteFolio = null;
+    private ?bool $portfolio = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
@@ -166,14 +166,14 @@ class Peinture
         return $this;
     }
 
-    public function isPorteFolio(): ?bool
+    public function isPortfolio(): ?bool
     {
-        return $this->porteFolio;
+        return $this->portfolio;
     }
 
-    public function setPorteFolio(bool $porteFolio): static
+    public function setPortfolio(bool $portfolio): static
     {
-        $this->porteFolio = $porteFolio;
+        $this->portfolio = $portfolio;
 
         return $this;
     }

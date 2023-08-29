@@ -34,19 +34,19 @@ class PeintureRepository extends ServiceEntityRepository
         ;
     }
 
-   /**
-    * @return Peinture[] Returns an array of Peinture objects
-    */
-   public function findAllPortfolio(Categorie $categorie): array
-   {
-       return $this->createQueryBuilder('p')
-           ->Where(':categorie MEMBER OF p.categorie')
-           ->andWhere('p.portfolio = TRUE')
-           ->setParameter('categorie', $categorie)
-           ->getQuery()
-           ->getResult()
-       ;
-   }
+//    /**
+//     * @return Peinture[] Returns an array of Peinture objects
+//     */
+//    public function findAllPortfolio(Categorie $categorie): array
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->Where(':categorie MEMBER OF p.categorie')
+//            ->andWhere('p.portfolio = TRUE')
+//            ->setParameter('categorie', $categorie)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
 
 //    public function findOneBySomeField($value): ?Peinture
 //    {

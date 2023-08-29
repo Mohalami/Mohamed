@@ -73,7 +73,7 @@ class AppFixtures extends Fixture
                                  ->setDateRealisation($faker->dateTimeBetween('-6 monyh', 'now'))
                                  ->setCreatedAt($faker->dateTimeBetween('-6 monyh', 'now'))
                                  ->setDescription($faker->text())
-                                 ->setPorteFolio($faker->randomElement([true, false]))
+                                 ->setPortFolio($faker->randomElement([true, false]))
                                  ->setSlug($faker->slug())
                                  ->setFile('/img/exemple.jpg')
                                  ->addCategorie($categorie)
