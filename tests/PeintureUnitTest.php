@@ -3,6 +3,7 @@
 namespace App\Tests;
 
 use App\Entity\Categorie;
+use App\Entity\Commentaire;
 use App\Entity\Peinture;
 use App\Entity\User;
 use DateTime;
@@ -24,7 +25,7 @@ class PeintureUnitTest extends TestCase
                  ->setDateRealisation($datetime)
                  ->setCreatedAt($datetime)
                  ->setDescription('description')
-                 ->setPorteFolio(true)
+                 ->setPortfolio(true)
                  ->setSlug("slug")
                  ->setFile('file')
                  ->addCategorie($categorie)
@@ -39,7 +40,7 @@ class PeintureUnitTest extends TestCase
         $this->assertTrue($peinture->getDateRealisation() === $datetime );
         $this->assertTrue($peinture->getCreatedAt() === $datetime);
         $this->assertTrue($peinture->getDescription() === 'description');
-        $this->assertTrue($peinture->isPorteFolio() === true);
+        $this->assertTrue($peinture->isPortFolio() === true);
         $this->assertTrue($peinture->getSlug() === 'slug');
         $this->assertTrue($peinture->getFile() === 'file');
         $this->assertEquals($peinture->getPrix(), 20.20);
@@ -63,7 +64,7 @@ class PeintureUnitTest extends TestCase
             ->setDateRealisation($datetime)
             ->setCreatedAt($datetime)
             ->setDescription('description')
-            ->setPorteFolio(true)
+            ->setPortFolio(true)
             ->setSlug("slug")
             ->setFile('file')
             ->addCategorie($categorie)
@@ -78,7 +79,7 @@ class PeintureUnitTest extends TestCase
         $this->assertFalse($peinture->getDateRealisation() === new DateTime() );
         $this->assertFalse($peinture->getCreatedAt() === new DateTime());
         $this->assertFalse($peinture->getDescription() === 'false');
-        $this->assertFalse($peinture->isPorteFolio() === false);
+        $this->assertFalse($peinture->isPortFolio() === false);
         $this->assertFalse($peinture->getSlug() === 'false');
         $this->assertFalse($peinture->getFile() === 'false');
         $this->assertFalse($peinture->getPrix() === 22.20);
@@ -97,11 +98,40 @@ class PeintureUnitTest extends TestCase
         $this->assertEmpty($peinture->getDateRealisation());
         $this->assertEmpty($peinture->getCreatedAt());
         $this->assertEmpty($peinture->getDescription());
-        $this->assertEmpty($peinture->isPorteFolio());
+        $this->assertEmpty($peinture->isPortFolio());
         $this->assertEmpty($peinture->getSlug());
         $this->assertEmpty($peinture->getFile());
         $this->assertEmpty($peinture->getPrix());
         $this->assertEmpty($peinture->getCategorie());
         $this->assertEmpty($peinture->getUser());
+        $this->assertEmpty($peinture->getId());
+    }
+
+    public function testAddGetRemoveCommentaire()
+    {
+        $peinture= new Peinture();
+        $commentaire= new Commentaire();
+
+        $this->assertEmpty($peinture->getCommentaires());
+
+        $peinture->addCommentaire($commentaire);
+        $this->assertContains($commentaire, $peinture->getCommentaires());
+
+        $peinture->removeCommentaire($commentaire);
+        $this->assertEmpty($peinture->getCommentaires());
+    }
+
+    public function testAddGetRemoveCategorie()
+    {
+        $peinture= new Peinture();
+        $categorie= new Categorie();
+
+        $this->assertEmpty($peinture->getCategorie());
+
+        $peinture->addCategorie($categorie);
+        $this->assertContains($categorie, $peinture->getCategorie());
+
+        $peinture->removeCategorie($categorie);
+        $this->assertEmpty($peinture->getCategorie());
     }
 }
