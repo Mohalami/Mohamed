@@ -25,7 +25,7 @@ class ContactController extends AbstractController
             $contact= $form ->getData();
             
             $contactService->persistContact($contact);
-            dd($contact);
+            // dd($contact);
 
             return $this->redirectToRoute('contact');
 
