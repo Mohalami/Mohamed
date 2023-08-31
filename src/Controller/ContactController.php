@@ -23,12 +23,12 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $contact= $form ->getData();
-
+            
             $contactService->persistContact($contact);
+            dd($contact);
 
             return $this->redirectToRoute('contact');
 
-            // dd($contact);
         }
 
         return $this->render('contact/index.html.twig', [

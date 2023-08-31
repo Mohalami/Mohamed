@@ -4,55 +4,55 @@
 
 {% block body %}
     <!-- CONTENT -->
-    <div class="container>
-        <div>
+        <div class="container>
             <div>
-                <aside>
-                    <div>
-                        <h2>{{ peinture.nom }}</h2>
-                        {% for categorie in peinture.categorie %}
-                            <span> {{ categorie.nom }} </span>
-                        {% endfor %}
-                    </div>
-                    <p>{{ peinture.description }}</p>
+                <div>
+                    <aside>
+                        <div>
+                            <h2>{{ peinture.nom }}</h2>
+                            {% for categorie in peinture.categorie %}
+                                <span> {{ categorie.nom }} </span>
+                            {% endfor %}
+                        </div>
+                        <p>{{ peinture.description }}</p>
 
-                    <ul>
-                        <li>
-                            <h6>
-                                Date de Réalisation
-                                <span> {{ peinture.dateRealisation|date('d/m/Y') }}</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6>
-                                Largeur
-                                <span> {{ peinture.largeur }}Cm</span>
-                            </h6>
-                        </li>
-                        <li>
-                            <h6>
-                                Hauteur
-                                <span> {{ peinture.hauteur }}</span>
-                            </h6>
-                        </li>
-                        {% if peinture.enVente %}
+                        <ul>
                             <li>
                                 <h6>
-                                    <strong>Disponible à la vente </strong>
-                                    <span><strong>{{ peinture.prix }}</strong></span>
+                                    Date de Réalisation
+                                    <span> {{ peinture.dateRealisation|date('d/m/Y') }}</span>
                                 </h6>
                             </li>
-                        {% endif %}
-                    </ul>
-                </aside>
-            </div>
+                            <li>
+                                <h6>
+                                    Largeur
+                                    <span> {{ peinture.largeur }}Cm</span>
+                                </h6>
+                            </li>
+                            <li>
+                                <h6>
+                                    Hauteur
+                                    <span> {{ peinture.hauteur }}</span>
+                                </h6>
+                            </li>
+                            {% if peinture.enVente %}
+                                <li>
+                                    <h6>
+                                        <strong>Disponible à la vente </strong>
+                                        <span><strong>{{ peinture.prix }}</strong></span>
+                                    </h6>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </aside>
+                </div>
 
-            <div>
-                <section>
-                    <img src="{{ asset(peinture.file) }}">
-                </section>
+                <div>
+                    <section>
+                        <img src="{{ asset(peinture.file) }}">
+                    </section>
+                </div>
             </div>
         </div>
-    </div>
 {% endblock %}
                         
