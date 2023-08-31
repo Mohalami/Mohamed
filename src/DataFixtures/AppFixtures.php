@@ -12,6 +12,7 @@ use Faker\Factory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
+
 class AppFixtures extends Fixture
 {
     private UserPasswordHasherInterface $hasher;
@@ -52,6 +53,7 @@ class AppFixtures extends Fixture
             $manager->persist($blogpost);
         }
 
+        
         // Creation de categorie
         for ($k=0; $k < 5 ; $k++) { 
            $categorie= new Categorie();
