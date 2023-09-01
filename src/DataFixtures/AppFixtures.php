@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
              ->setTelephone($faker->phoneNumber())
              ->setAPropos($faker->text())
              ->setInstagram('instagram')
-             ->setRoles(['ROLE_PEINTRE']);
+             ->setRoles(['ROLE_USER']);
 
              $password = $this->hasher->hashPassword($user, 'password');
         $user->setPassword($password);

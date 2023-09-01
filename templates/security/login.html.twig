@@ -29,7 +29,7 @@
                                 Administration du site
                             </p>
 
-                            <form>
+                            <form method="POST">
                                 {% if error %}
                                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                                 {% endif %}
