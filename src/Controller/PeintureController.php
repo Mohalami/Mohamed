@@ -13,19 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class PeintureController extends AbstractController
 {   
     #[Route('/realisations', name: 'realisations')]
-    public function realisations(PeintureRepository $peintureRepository,
-                                 PaginatorInterface $paginator,
-                                 Request $request): Response
+    public function realisations(PeintureRepository $peintureRepository): Response
     {
-        $data= $peintureRepository->findAll();
-        $peintures = $paginator->paginate(
-            $data,
-            $request->query->getInt('page', 1),
-            6
-        );
-
+        $peintures = $peintureRepository->findAll();
+    
         return $this->render('peinture/realisations.html.twig', [
-            'peintures'=>$peintures,
+            'peintures' => $peintures,
         ]);
     }
 

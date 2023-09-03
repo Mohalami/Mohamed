@@ -35,21 +35,44 @@ class AppFixtures extends Fixture
              ->setTelephone($faker->phoneNumber())
              ->setAPropos($faker->text())
              ->setInstagram('instagram')
-             ->setRoles(['ROLE_USER']);
+             ->setRoles(['ROLE_ADMIN']);
 
              $password = $this->hasher->hashPassword($user, 'password');
         $user->setPassword($password);
         $manager->persist($user);
 
-        // Creation de 10 blogpost
-        for ($i=0; $i < 10; $i++) { 
-            $blogpost= new Blogpost();
+        // Un 2éme user qui a le role peintre
+        $user2= new User();
 
+        $user2->setEmail(('user2@test.com'))
+             ->setPrenom($faker->firstName())
+             ->setNom($faker->lastName())
+             ->setTelephone($faker->phoneNumber())
+             ->setAPropos($faker->text())
+             ->setInstagram('instagram')
+             ->setRoles(['ROLE_PEINTRE']);
+
+             $password = $this->hasher->hashPassword($user2, 'password');
+        $user2->setPassword($password);
+        $manager->persist($user2);
+
+
+        // Creation de 10 blogpost
+        for ($i = 0; $i < 10; $i++) {
+            $blogpost = new Blogpost();
+            
+            // Formatez la date au format "d/m/y"
+            $formattedCreatedAt = $faker->dateTimeBetween('-6 month', 'now')->format('d/m/y');
+            
+            // Créez un objet DateTime à partir de la chaîne formatée
+            $createdAt = \DateTime::createFromFormat('d/m/y', $formattedCreatedAt);
+            
             $blogpost->setTitre($faker->words(3, true))
-                     ->setCreatedAt($faker->dateTimeBetween('-6 month', 'now'))
-                     ->setContenu($faker->text(350))
-                     ->setSlug($faker->slug(3))
-                     ->setUser($user);
+                ->setCreatedAt($createdAt)
+                ->setContenu($faker->text(350))
+                ->setSlug($faker->slug(3))
+                ->setUser($user);
+                
             $manager->persist($blogpost);
         }
 

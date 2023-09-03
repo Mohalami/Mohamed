@@ -12,21 +12,33 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogpostController extends AbstractController
 {
+
+    public function index(BlogpostRepository $blogpostRepository): Response
+    {
+        return $this->render('admin_blogpost/index.html.twig', [
+            'blogposts' => $blogpostRepository->findAll(),
+        ]);
+    }
+
     #[Route('/actualites', name: 'actualites')]
     public function actualites(BlogpostRepository $blogpostRepository,
                                PaginatorInterface $paginator,
                                Request $request): Response
     {
-        $data= $blogpostRepository->findAll();
 
-        $blogposts= $paginator->paginate(
-            $data,
-            $request->query->getInt('page', 1),
-            6
-        );
-        return $this->render('blogpost/actualites.html.twig', [
-            'blogposts' => $blogposts,
+        return $this->render('admin_blogpost/index.html.twig', [
+            'blogposts' => $blogpostRepository->findAll(),
         ]);
+        // $data= $blogpostRepository->findAll();
+
+        // $blogposts= $paginator->paginate(
+        //     $data,
+        //     $request->query->getInt('page', 1),
+        //     6
+        // );
+        // return $this->render('blogpost/actualites.html.twig', [
+        //     'blogposts' => $blogposts,
+        // ]);
     }
 
    

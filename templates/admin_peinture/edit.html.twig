@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Peinture{% endblock %}
+
+{% block body %}
+    <h1>Edit Peinture</h1>
+
+    {{ include('admin_peinture/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_peinture_index') }}">back to list</a>
+
+    {{ include('admin_peinture/_delete_form.html.twig') }}
+{% endblock %}
