@@ -15,7 +15,7 @@ class PeintureController extends AbstractController
     #[Route('/realisations', name: 'realisations')]
     public function realisations(PeintureRepository $peintureRepository): Response
     {
-        $peintures = $peintureRepository->findAll();
+        $peintures = $peintureRepository->findBy([], ['id' => 'DESC']);
     
         return $this->render('peinture/realisations.html.twig', [
             'peintures' => $peintures,

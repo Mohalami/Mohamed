@@ -26,7 +26,7 @@
             {% for peinture in peintures %}
                 <div>
                     <div>
-                        <img src="{{ peinture.file }}"/>
+                        <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}"/>
                     </div>
                 </div>
             {% endfor %}

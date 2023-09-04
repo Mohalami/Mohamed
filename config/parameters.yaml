@@ -1,0 +1,4 @@
+# config/packages/parameters.yaml
+
+parameters:
+    peinture_images: '/uploads/peintures'

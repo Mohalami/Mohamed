@@ -16,7 +16,7 @@ class BlogpostController extends AbstractController
     public function index(BlogpostRepository $blogpostRepository): Response
     {
         return $this->render('admin_blogpost/index.html.twig', [
-            'blogposts' => $blogpostRepository->findAll(),
+            'blogposts' => $blogpostRepository->findBy([], ['id' => 'DESC']),
         ]);
     }
 

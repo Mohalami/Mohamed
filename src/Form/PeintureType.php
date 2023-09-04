@@ -24,7 +24,10 @@ class PeintureType extends AbstractType
             ->add('description')
             ->add('portfolio')
             // ->add('slug')
-            ->add('file')
+            ->add('imageFile', FileType::class, [ // Utilisez 'imageFile' au lieu de 'file'
+                'label' => 'Image', // Personnalisez le label selon vos besoins
+                'required' => false, // Selon vos besoins
+            ])
             // ->add('user')
             // ->add('categorie')
         ;

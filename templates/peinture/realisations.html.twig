@@ -16,7 +16,7 @@
             {% for peinture in peintures %}
             <div class="artwork">
                 <a href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
-                    <img class="artwork-image" src="{{ asset(peinture.file) }}" alt="{{ peinture.nom }}">
+                    <img class="artwork-image" src="{{ vich_uploader_asset(peinture, 'imageFile') }}" alt="{{ peinture.nom }}">
                 </a>
                 <a href="{{ path('realisations_details', {'slug':peinture.slug}) }}">
                     <h3>{{peinture.nom}}</h3>

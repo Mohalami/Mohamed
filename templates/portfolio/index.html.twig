@@ -20,11 +20,11 @@
     <div class="container">
         <div>
             {% for categorie in categories %}
-                {% set img = categorie.peintures|last  %}
-                {% if img is not empty %}
+                {% set peinture = categorie.peintures|last  %}
+                {% if peinture is not empty %}
                     <div>
                         <a href="{{ path('portfolio_categorie', { 'slug': categorie.slug }) }}">
-                            <img src="{{ img.file }}"/>
+                            <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}"/>
                             <div>
                                 <h4>
                                     {{ categorie.nom }}
