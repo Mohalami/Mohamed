@@ -21,12 +21,10 @@ class BlogpostController extends AbstractController
     }
 
     #[Route('/actualites', name: 'actualites')]
-    public function actualites(BlogpostRepository $blogpostRepository,
-                               PaginatorInterface $paginator,
-                               Request $request): Response
+    public function actualites(BlogpostRepository $blogpostRepository): Response
     {
 
-        return $this->render('admin_blogpost/index.html.twig', [
+        return $this->render('blogpost/actualites.html.twig', [
             'blogposts' => $blogpostRepository->findAll(),
         ]);
         // $data= $blogpostRepository->findAll();
