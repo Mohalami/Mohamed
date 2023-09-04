@@ -9,3 +9,5 @@ liip_imagine:
                 thumbnail:
                     size: [600, 330]
                     mode: outbound
+    twig:
+        mode: lazy  # Ajoutez cette ligne pour résoudre la dépréciation

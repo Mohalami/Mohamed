@@ -1,0 +1,48 @@
+
+
+{% block body %}
+
+    <section>
+        <div>
+            <div>
+                <div>
+                    {% for message in app.flashes('success') %}
+                        <div>
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section>
+        <div>
+            <div>
+                <div>
+                    <button type="button" class="btn btn-secondary>
+                       Laisser un message
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+        <div>
+            <div>
+                <div>
+                    <h5 class="modal-title">Laisser un commentaire</h5>
+                        <button type="button" class="btn btn-secondary></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ form(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+{% endblock %}

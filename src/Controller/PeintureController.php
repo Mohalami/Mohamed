@@ -2,12 +2,16 @@
 
 namespace App\Controller;
 
+use Amp\Http\Client\Request;
+use App\Entity\Commentaire;
 use App\Entity\Peinture;
+use App\Form\CommentaireType;
+use App\Repository\CommentaireRepository;
 use App\Repository\PeintureRepository;
+use App\Service\CommentaireService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 
 
 class PeintureController extends AbstractController
@@ -29,15 +33,32 @@ class PeintureController extends AbstractController
     }
 
     #[Route('/realisations/{slug}', name: 'realisations_details')]
-    public function details(string $slug, PeintureRepository $peintureRepository): Response
+    public function details(Peinture $peinture,
+                            Request $request,
+                            CommentaireService $commentaireService,
+                            CommentaireRepository $commentaireRepository
+    ): Response
     {   
-        $peinture= $peintureRepository->findOneBy(['slug' =>$slug]);
+        $commentaires = $commentaireRepository->findCommentaires($peinture);
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $commentaire = $form ->getData();
+            $commentaireService->persistCommentaire($commentaire, null, $peinture);
+
+            return $this->redirectToRoute('realisations_detail', ['slug' => $peinture->getSlug()]);
+        }
+        
         
         if(!$peinture){
             throw $this->createNotFoundException('Peinture non trouvée');
         }
         return $this->render('peinture/details.html.twig', [
             'peinture' =>$peinture,
+            'form' =>$form->createView(),
+            'commentaires' => $commentaires,
         ]);
     }
 }

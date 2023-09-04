@@ -1,0 +1,19 @@
+<section>
+    {% for com in commentaires %}
+        <div class="container">
+            <div>
+                <div>
+                    <blockquote>
+                        <p>
+                            {{com.contenu}}
+                        </p>
+
+                        <footer>
+                            <span>Par {{ com.auteur }} le {{ com.createdAt|date('d/m/Y') }}</span>
+                        </footer>
+                    </blockquote>
+                </div
+            </div>
+        </div>
+    {{% endfor %}}
+</section>

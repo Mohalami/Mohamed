@@ -326,16 +326,16 @@
         },
         {
             "name": "amphp/hpack",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/hpack.git",
-                "reference": "5835a1414a52892562338dc76c2df926fa52a480"
+                "reference": "1dee97a02f6e51e43fa4f82fc67fb2189eb16a9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/hpack/zipball/5835a1414a52892562338dc76c2df926fa52a480",
-                "reference": "5835a1414a52892562338dc76c2df926fa52a480",
+                "url": "https://api.github.com/repos/amphp/hpack/zipball/1dee97a02f6e51e43fa4f82fc67fb2189eb16a9d",
+                "reference": "1dee97a02f6e51e43fa4f82fc67fb2189eb16a9d",
                 "shasum": ""
             },
             "require": {
@@ -344,7 +344,8 @@
             "require-dev": {
                 "amphp/php-cs-fixer-config": "^2",
                 "http2jp/hpack-test-case": "^1",
-                "phpunit/phpunit": "^9"
+                "nikic/php-fuzzer": "^0.0.10",
+                "phpunit/phpunit": "^7 | ^8 | ^9"
             },
             "type": "library",
             "extra": {
@@ -387,7 +388,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amphp/hpack/issues",
-                "source": "https://github.com/amphp/hpack/tree/v3.1.5"
+                "source": "https://github.com/amphp/hpack/tree/v3.1.6"
             },
             "funding": [
                 {
@@ -395,7 +396,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-15T19:29:20+00:00"
+            "time": "2023-09-04T19:04:17+00:00"
         },
         {
             "name": "amphp/http",
