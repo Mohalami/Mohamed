@@ -20,3 +20,7 @@
 ###< symfony/phpunit-bridge ###
 /public/uploads/peintures/*
 !/public/uploads/peintures/exemple.jpg
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
