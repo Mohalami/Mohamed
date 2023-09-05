@@ -66,8 +66,8 @@ public function detail(Blogpost $blogpost,
 
 
     return $this->render('blogpost/detail.html.twig',[
-        'blogpost' => $blogpost,
-        'form' => $form->createView(),
+        'blogpost'     => $blogpost,
+        'form'         => $form->createView(),
         'commentaires' => $commentaires,
     ]);
 }
