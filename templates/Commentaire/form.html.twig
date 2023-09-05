@@ -20,8 +20,8 @@
         <div>
             <div>
                 <div>
-                    <button type="button" class="btn btn-secondary>
-                       Laisser un message
+                    <button type="button" id="openCommentModal" class="btn btn-secondary">
+                        Laisser un commentaire
                     </button>
                     </div>
                 </div>
@@ -30,18 +30,43 @@
     </section>
 
     <!-- Modal -->
-        <div>
-            <div>
-                <div>
-                    <h5 class="modal-title">Laisser un commentaire</h5>
-                        <button type="button" class="btn btn-secondary></button>
-                    </div>
-                    <div class="modal-body">
-                        {{ form(form) }}
-                    </div>
+        <div id="commentModal" class="modal">
+            <div class="modal-content">
+                <span id="closeCommentModal" class="close">&times;</span>
+                <h5>Laisser un commentaire</h5>
+                <div class="modal-body">
+                    {{ form(form) }}
                 </div>
             </div>
         </div>
+
+
+         <script>
+        // Votre code JavaScript pour gérer la modal ici
+
+        // Récupérez les éléments de la modal
+        var openCommentButton = document.getElementById("openCommentModal");
+        var commentModal = document.getElementById("commentModal");
+        var closeCommentButton = document.getElementById("closeCommentModal");
+
+        // Ouvrez la modal lorsque le bouton est cliqué
+        openCommentButton.addEventListener("click", function() {
+            commentModal.style.display = "block";
+        });
+
+        // Fermez la modal lorsque le bouton de fermeture est cliqué
+        closeCommentButton.addEventListener("click", function() {
+            commentModal.style.display = "none";
+        });
+
+        // Fermez la modal lorsque l'utilisateur clique en dehors de la modal
+        window.addEventListener("click", function(event) {
+            if (event.target == commentModal) {
+                commentModal.style.display = "none";
+            }
+        });
+    </script>
+
     
 
 

@@ -5,14 +5,11 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     # Définissez vos paramètres ici
-    peinture_images: '/uploads/peintures'
-#imports:
-    #- { resource: 'parameters.yaml' }  # Incluez parameters.yaml ici
+
+imports:
+    - { resource: 'parameters.yaml' }  # Incluez parameters.yaml ici
 
 services:
-    App\Service\CommentaireService:
-        arguments:
-            $flash: '@session.flash_bag' 
     Symfony\Component\HttpFoundation\Session\SessionInterface:
         class: Symfony\Component\HttpFoundation\Session\Session
     App\Twig\AppExtension: ~

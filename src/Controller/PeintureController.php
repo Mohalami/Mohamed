@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Amp\Http\Client\Request;
+
 use App\Entity\Commentaire;
 use App\Entity\Peinture;
 use App\Form\CommentaireType;
@@ -12,6 +12,8 @@ use App\Service\CommentaireService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 
 class PeintureController extends AbstractController
@@ -48,7 +50,7 @@ class PeintureController extends AbstractController
             $commentaire = $form ->getData();
             $commentaireService->persistCommentaire($commentaire, null, $peinture);
 
-            return $this->redirectToRoute('realisations_detail', ['slug' => $peinture->getSlug()]);
+            return $this->redirectToRoute('realisations_details', ['slug' => $peinture->getSlug()]);
         }
         
         

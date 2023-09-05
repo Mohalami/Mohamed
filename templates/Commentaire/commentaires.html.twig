@@ -1,19 +1,15 @@
-<section>
+<section class="comment-section">
     {% for com in commentaires %}
-        <div class="container">
-            <div>
-                <div>
-                    <blockquote>
-                        <p>
-                            {{com.contenu}}
-                        </p>
+        <div class="comment-card">
+            <div class="comment-content">
+                <blockquote class="comment-text">
+                    {{ com.contenu }}
+                </blockquote>
 
-                        <footer>
-                            <span>Par {{ com.auteur }} le {{ com.createdAt|date('d/m/Y') }}</span>
-                        </footer>
-                    </blockquote>
-                </div
+                <footer class="comment-info">
+                    <span>Par {{ com.auteur }} le {{ com.createdAt|date('d/m/Y') }}</span>
+                </footer>
             </div>
         </div>
-    {{% endfor %}}
+    {% endfor %}
 </section>

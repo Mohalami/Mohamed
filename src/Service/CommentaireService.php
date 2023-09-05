@@ -7,31 +7,28 @@ use App\Entity\Commentaire;
 use App\Entity\Peinture;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 class CommentaireService
 {
     private $manager;
-    private $flash;
-
-    public function __construct(EntityManagerInterface $manager, FlashBagInterface $flash)
+    
+    public function __construct(EntityManagerInterface $manager)
     {
-        $this->manager= $manager;
-        $this->flash= $flash;
+        $this->manager = $manager;
     }
 
     public function persistCommentaire(
         Commentaire $commentaire,
         Blogpost $blogpost = null,
         Peinture $peinture = null
-    ):void{
+    ): void {
         $commentaire->setIsPublished(false)
-                    ->setBlogpost($blogpost)
-                    ->setPeinture($peinture)
-                    ->setCreatedAt(new DateTime('now'));
+            ->setBlogpost($blogpost)
+            ->setPeinture($peinture)
+            ->setCreatedAt(new DateTime('now'));
 
         $this->manager->persist($commentaire);
         $this->manager->flush();
-        $this->flash->add('success', 'Votre commentaire est bien envoyé, merci. Il sera publié après validation');
+        // Vous n'avez plus besoin d'utiliser $this->flash ici
     }
 }
