@@ -42,12 +42,12 @@ class PeintureCrudController extends AbstractCrudController
 
         
         // Ajoutez le champ imageFile uniquement lors de la création
-        // if ($pageName === Crud::PAGE_NEW) {
-            //     $fields[] = TextField::new('imageFile')
-            //         ->setFormType(VichImageType::class);
-            // }
+        if ($pageName === Crud::PAGE_NEW) {
+                $fields[] = TextField::new('imageFile')
+                    ->setFormType(VichImageType::class);
+            }
             
-            // return $fields;
+            return $fields;
         }
         
         public function configureCrud(Crud $crud): Crud
