@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('../monprojet/pressstart2p.woff2') format('woff2'),
+       url('../monprojet/pressstart2p.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /* Reset default list styles and spacing */
 ul, li {
   margin: 0;
@@ -13,7 +22,15 @@ ul, li {
 
 
 
+
 /* Styling the navigation bar */
+.nav-header{
+  height: 0;
+  width: 0;
+  /* background-image: url('/img/navcover.jpg'); */
+  /* background-size: cover; */
+}
+
 .navbar {
   background-color: #1B3460; /* Bleu Foncé */
   color: #fff;
@@ -24,6 +41,23 @@ ul, li {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+}
+
+.nav-links{
+  position: absolute;
+  padding: 30%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.menuburger{
+  position: absolute;
+  width: 35px;
+  top: 15px;
+  left: 90px;
+  display: none;
+  
 }
 
 .navbar-brand img {
@@ -38,6 +72,7 @@ ul, li {
 
 .navlist > li {
   position: relative;
+  /* margin: 0 5px; */
 }
 
 .navlist > li > a {
@@ -56,8 +91,14 @@ ul, li {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: rgba(16, 38, 206, 0.226);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(7px);
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+ 
+  transition: all 0.5s ease;
 }
 
 .portfolio:hover .submenu {
@@ -65,10 +106,14 @@ ul, li {
 }
 
 .nav-button {
+  position: absolute;
   background-color: #F27052; /* Orange */
   color: #fff;
-  padding: 12px 24px;
+  width: 100px;
+  padding: 10px 26px;
   border-radius: 5px;
+  top: -10px;
+  right: -250px;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -85,6 +130,16 @@ ul, li {
   width: auto; /* To maintain aspect ratio */
 }
 
+.logplus{
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 20px;
+  left: 30px;
+  z-index: 1;
+  opacity: 0.1;
+}
+
 
 /* Styling the welcome section */
 .welcome-section {
@@ -95,23 +150,25 @@ ul, li {
 }
 
 .welcome-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.welcome-content {
   max-width: 800px;
   margin: 0 auto;
 }
 
+.welcome-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .welcome-content h1 {
-  font-size: 2.5rem;
+  font-size: 400%;
   margin-bottom: 20px;
+  font-family: Cambria;
 }
 
 .welcome-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  font-family: Juana;
 }
 
 .welcome-button {
@@ -120,9 +177,11 @@ ul, li {
   color: #fff;
   padding: 12px 24px;
   font-weight: bold;
+  font-family: Juana;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  
 }
 
 .welcome-button i {
@@ -146,23 +205,33 @@ ul, li {
 .artist-container {
   max-width: 1200px;
   margin: 0 auto;
+  
+  
 }
 
-.artist-description h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
+.artist-description{
+  display: flex;
+  flex-direction: column;
+  align-items: center;}
+  
+  .artist-description h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: Cambria;
+  }
 
-.artist-description p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-}
-
-.artist-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  .artist-description p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-family: Juana;
+  }
+  
+  .artist-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
 }
+/* style de la page realisation */
 
 .artwork {
   background-color: #fff;
@@ -171,11 +240,13 @@ ul, li {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .artwork img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
   margin-bottom: 10px;
 }
+
 
 .artwork-details h3 {
   font-size: 1.5rem;
@@ -198,6 +269,48 @@ ul, li {
   color: #777;
 }
 
+/* Style de la page detail oeuvre */
+
+.detail-container{
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+.ouvredetaildesc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Cambria;
+}
+
+ouvredetaildesc ul{
+  font-family: Juana;
+}
+
+.artwork-slug img{
+  max-width: 60%;
+  max-height: 50%;
+  margin: 10px;
+  padding-left: 18%;
+}
+
+
+
+
+
+.btn-form{
+  position: relative;
+  left: 400px;
+  background-color: #E95E3E; /* Darker shade of Orange */
+  color: #ccc;
+  font-weight: bold;
+}
+
+.btn-form:hover{
+  background-color: #E95E3E; /* Darker shade of Orange */
+  transform: scale(1.05);
+}
 
 /* Styling the articles section */
 .articles-section {
@@ -229,6 +342,7 @@ ul, li {
 
 .blogpost {
   background-color: #f7f7f7;
+  font-family: Baskerville;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -255,6 +369,237 @@ ul, li {
   color: #777;
 }
 
+/* Styles pour personnaliser la page des actualités */
+
+/* Style de la section des actualités */
+.blog-section {
+  background-color: #f8f8f8;
+  padding: 30px 0;
+  text-align: center;
+}
+
+/* Style du conteneur */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Style categorie deatail */
+.categorie-container{
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: Baskerville;
+font-size: large;
+}
+
+.categorie-img{
+  max-width: 80%;
+  max-height: 80%;
+  margin: 10px;
+  padding-left: 8%;
+}
+
+/* Style de l'en-tête */
+.blog-header h1 {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Style des articles */
+.blog-post {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style des liens vers les articles */
+.post-link {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.post-link:hover {
+  color: #ff6600;
+}
+
+/* Style des titres d'article */
+.blog-post h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style des extraits d'article */
+.post-excerpt {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Style de la ligne de séparation */
+.post-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+/* Style de la date de publication */
+.post-date {
+  font-size: 14px;
+  color: #666;
+}
+
+/* style de la page actualite detail */
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #e0e0e0;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-title {
+  text-align: center;
+}
+
+.header-title h1 {
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.header-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.line {
+  width: 100px;
+  height: 3px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.date {
+  font-size: 18px;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.content-container {
+
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
+
+.article {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Style pour le formulaire de contact */
+/* Styles pour personnaliser le formulaire de contact */
+
+.contact-section {
+  background-color: #f8f8f8;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Baskerville;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.contact-form {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-form h2 {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-form p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: Juana;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
 
 /* Styling the footer section */
 .footer-section {
@@ -272,8 +617,10 @@ ul, li {
 }
 
 .footer-logo img {
+  position: relative;
   max-height: 40px;
   width: auto;
+  
 }
 
 .footer-logo p {
@@ -329,13 +676,32 @@ ul, li {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #3ab1c8;
+  color: #070f4e;
+  opacity: 0.5;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   width: 80%;
   max-width: 600px;
   position: relative;
+  font-family: Baskerville;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-body label{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
 }
 
 /* Style pour le bouton de fermeture */
@@ -395,5 +761,162 @@ footer span::before {
   margin-bottom: 20px; /* Espacement entre les commentaires */
 }
 
+@media screen and (max-width: 800px) {
+  .navbar-container{
+    padding: 0;
+  }
+  
+  .nav-links{
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(16, 38, 206, 0.226);
+    backdrop-filter: blur(7px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+    transition: all 0.5s ease;
+  }
 
+  .menuburger{
+    display: block;
+    top: 5px;
+    left: 10px;
+  }
+
+  .navlist{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+  }
+  
+  
+  .navlist > li {
+  position: relative;
+  margin: 25px 0;
+}
+
+.navbar-brand img{
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.logplus{
+  display: none;
+}
+
+.nav-button {
+  z-index: 1;
+  background-color: #F27052; /* Orange */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5 px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.mobile-menu{
+  margin-left: 0;
+}
+
+.nav-header{
+  height: 20vh;
+  width: 100vw;
+  /* background-image: url('/img/navcover.jpg'); */
+  background-size: cover;
+}
+.nav-button {
+  position: absolute;
+  background-color: #F27052; /* Orange */
+  color: #fff;
+  width: 130px;
+  padding: 10px 26px;
+  border-radius: 5px;
+  top: 0;
+  left: -50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-form{
+  position: relative;
+  left: 170px;
+  background-color: #E95E3E; /* Darker shade of Orange */
+  color: #ccc;
+  font-weight: bold;
+}
+/* style de la page actualite detail */
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #e0e0e0;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-title {
+  text-align: center;
+}
+
+.header-title h1 {
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.header-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.line {
+  width: 100px;
+  height: 3px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.date {
+  font-size: 18px;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.content-container {
+
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
+
+.article {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+
+}
 

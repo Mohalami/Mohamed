@@ -1,42 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello{% endblock %}
-
 {% block body %}
-
     <!-- HEADER -->
-    <section>
-        <div>
-            <div>
-                <div>
-                    <h1>{{ blogpost.titre }}</h1>
-                    <div>
-                        <div></div>
-                        <div>
-                            <time>
-                                Publié le {{ blogpost.createdAt|date('d/m/Y') }}
-                            </time>
-                        </div>
+    <section class="header">
+        <div class="header-container">
+            <div class="header-title">
+                <h1>{{ blogpost.titre }}</h1>
+                <div class="header-info">
+                    <div class="line"></div>
+                    <div class="date">
+                        <time>
+                            Publié le {{ blogpost.createdAt|date('d/m/Y') }}
+                        </time>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <div>
-            <div>
-                <div>
-                    <p>
-                        {{ blogpost.contenu }}
-                    </p>
-                </div>
+    <section class="content">
+        <div class="content-container">
+            <div class="article">
+                <p>
+                    {{ blogpost.contenu }}
+                </p>
             </div>
         </div>
     </section>
-    
+
     {% include "commentaire/form.html.twig" %}
     {% include "commentaire/commentaires.html.twig" %}
-
-
 {% endblock %}

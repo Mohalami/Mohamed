@@ -4,10 +4,10 @@
 
 {% block body %}
     <!-- CONTENT -->
-        <div class="container">
+        <div class="detail-container">
             <div>
                 <div>
-                    <aside>
+                    <aside class="ouvredetaildesc">
                         <div>
                             <h2>{{ peinture.nom }}</h2>
                             {% for categorie in peinture.categorie %}
@@ -48,13 +48,15 @@
                 </div>
 
                 <div>
-                    <section>
+                    <section class="artwork-slug">
                         <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}">
                     </section>
                 </div>
             </div>
         </div>
+        <div class="form-comment">
             {% include "commentaire/form.html.twig" %}
+        </div>
             {% include "commentaire/commentaires.html.twig" %}
 {% endblock %}
                         

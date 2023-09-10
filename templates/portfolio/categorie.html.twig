@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PortfolioController!{% endblock %}
+{% block title %}Catégorie détail{% endblock %}
 
 {% block body %}
 <!-- WELCOME -->
-{% set img= categorie.peintures|last %}
+
+<div class="categorie-container">
 <section>
-    <div class="container">
+    <div class="categorie-content">
         <div>
             <div>
                 <h1>
@@ -21,12 +22,12 @@
 </section>
 
 <section>
-    <div class="container">
+    <div>
         <div>
             {% for peinture in peintures %}
                 <div>
-                    <div>
-                        <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}"/>
+                    <div class="categorie-img">
+                        <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}" class="categorie-img" />
                     </div>
                 </div>
             {% endfor %}
@@ -34,4 +35,5 @@
         </div>
     </div>
 </section>
+</div>
 {% endblock %}

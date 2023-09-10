@@ -1,40 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PeintureController!{% endblock %}
+{% block title %}Actualités{% endblock %}
 
 {% block body %}
-    <section>
+    <section class="blog-section">
         <div class="container">
-            <div>
-                <div>
-                    <p>
-                        Nos articles récents.
-                    </p>
-                </div>
-                {% for blogpost in blogposts %}
-                    <div>
-                        <div>
-                            <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
-                                <h3>
-                                    {{asset(blogpost.titre)}}
-                                </h3>
-                                <p>
-                                    {{blogpost.contenu|u.truncate(150, '...', false)}}
-                                </p>
-                            </a>
-                            <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}">
-                               <hr>
-                                <p>
-                                    <time>
-                                        Publié le {{ blogpost.createdAt|date('d/m/y') }}
-                                    </time>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
+            <div class="blog-header">
+                <h1>Nos articles récents</h1>
             </div>
+            {% for blogpost in blogposts %}
+                <div class="blog-post">
+                    <a href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}" class="post-link">
+                        <h3>{{ blogpost.titre }}</h3>
+                        <p class="post-excerpt">{{ blogpost.contenu|u.truncate(150, '...', false) }}</p>
+                        <hr class="post-divider">
+                        <p class="post-date">Publié le {{ blogpost.createdAt|date('d/m/y') }}</p>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
-      
     </section>
 {% endblock %}
-
