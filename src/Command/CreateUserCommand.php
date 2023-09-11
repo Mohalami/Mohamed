@@ -36,7 +36,7 @@ class CreateUserCommand extends Command
     protected function configure():void
     {
         $this->addArgument('username', InputArgument::REQUIRED, 'The username of the user.')
-             ->addArgument('password', InputArgument::REQUIRED, 'The paassword of the user.')
+             ->addArgument('password', InputArgument::REQUIRED, 'The password of the user.')
        ;
     }
 
